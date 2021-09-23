@@ -24,7 +24,7 @@ jobs:
     - name: Coverage report
       run:  |
         pip3 install coverage
-        coverage run mysite_rebrand/manage.py test
+        coverage run manage.py test
         coverage report
 
 
