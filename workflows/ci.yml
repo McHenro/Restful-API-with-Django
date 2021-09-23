@@ -1,10 +1,11 @@
-name: Django Tests
+name: Restful API Tests
 on:
   push:
     branches:
       - main
   pull_request:
     branches:
+ 
       - main
 jobs:
   build:
