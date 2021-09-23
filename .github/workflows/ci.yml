@@ -23,7 +23,6 @@ jobs:
         python manage.py makemigrations
         python manage.py migrate
     - name: Coverage report
-      # run:  |
       run:  |
         pip3 install coverage
         coverage run mysite_rebrand/manage.py test
