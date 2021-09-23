@@ -38,16 +38,44 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'authen_app',
-    'rest_framework_simplejwt.token_blacklist',
+    # 'rest_framework.authtoken',
+    'authen_app2',
+    'knox',
     
+    # 'rest_framework_simplejwt.token_blacklist',   
 ]
 
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES':[
+#         'rest_framework_simplejwt.authentication.JWTAuthentication'
+#     ]
+# }
+
+
+
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': [
+#         'rest_framework.authentication.TokenAuthentication',
+#     ],
+# 'DEFAULT_PERMISSION_CLASSES': [
+#     'rest_framework.permissions.IsAuthenticated',
+# ]
+# }
+
+
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES':[
-        'rest_framework_simplejwt.authentication.JWTAuthentication'
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
+        'knox.auth.TokenAuthentication',
     ]
 }
+
+
+
+# AUTH_USER_MODEL='UserManagement.Users'
+# AUTH_USER_MODEL = 'poker.PokerUser'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
