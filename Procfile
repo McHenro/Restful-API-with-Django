@@ -1,1 +1,1 @@
-web: gunicorn authen_app2.wsgi
+web: gunicorn authen_project.wsgi
