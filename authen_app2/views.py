@@ -11,6 +11,7 @@ from rest_framework.response import Response
 from knox.models import AuthToken
 from .serializers import UserSerializer, RegisterSerializer
 from django.views.decorators.debug import sensitive_post_parameters
+import random
 
 # Register API
 class RegisterAPI(generics.GenericAPIView):
@@ -21,9 +22,8 @@ class RegisterAPI(generics.GenericAPIView):
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
         return Response({
-        "user": UserSerializer(user, context=self.get_serializer_context()).data,
-        "token": AuthToken.objects.create(user)[1]
-        })
+        "user": UserSerializer(user, context=self.get_serializer_context()).data, "otp code": str(random.randint(100000, 999999)),
+        "token": AuthToken.objects.create(user)[1] })
 
 # Login API
 class LoginAPI(KnoxLoginView):
