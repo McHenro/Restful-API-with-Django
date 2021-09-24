@@ -1,0 +1,1 @@
+web: gunicorn authen_app2.wsgi
